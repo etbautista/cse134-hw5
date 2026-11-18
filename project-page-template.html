@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ethanbautista.dev</title>
+    <link rel="icon" href="public/assets/icons/signature.svg"/>
+    <link rel="stylesheet" href="style.css"/>
+    <style>
+        horizontal-container {
+            display: flex;
+            flex-direction: row;
+        }
+    </style>
+    <script>
+        const savedTheme = localStorage.getItem("theme") || "light"
+
+        console.log(savedTheme)
+        document.documentElement.setAttribute("data-theme", savedTheme);
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="index.html">
+            <svg width="54" height="54" viewBox="0 0 54 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="54" height="54" rx="16" fill="#FFFCF2"/>
+                <path d="M9.91425 17.6H23.4823V20.096H12.6023V27.52H23.2903V30.016H12.6023V37.504H23.6743V40H9.91425V17.6ZM28.324 37.504H30.244V20.096H28.324V17.6H37.38C38.4467 17.6 39.3853 17.7493 40.196 18.048C41.028 18.3467 41.7213 18.752 42.276 19.264C42.852 19.776 43.2787 20.3947 43.556 21.12C43.8547 21.824 44.004 22.592 44.004 23.424V23.808C44.004 24.4267 43.908 24.992 43.716 25.504C43.524 26.016 43.2573 26.4747 42.916 26.88C42.5747 27.2853 42.1693 27.6373 41.7 27.936C41.252 28.2133 40.7613 28.4267 40.228 28.576V28.96C41.2947 29.2587 42.1907 29.8347 42.916 30.688C43.6413 31.52 44.004 32.544 44.004 33.76V34.144C44.004 34.976 43.8547 35.7547 43.556 36.48C43.2787 37.184 42.852 37.8027 42.276 38.336C41.7213 38.848 41.028 39.2533 40.196 39.552C39.3853 39.8507 38.4467 40 37.38 40H28.324V37.504ZM32.932 37.504H37.188C38.4467 37.504 39.4707 37.1947 40.26 36.576C41.0493 35.936 41.444 35.0613 41.444 33.952V33.76C41.444 32.608 41.0707 31.7013 40.324 31.04C39.5773 30.3573 38.564 30.016 37.284 30.016H32.932V37.504ZM32.932 27.52H37.284C38.564 27.52 39.5773 27.1893 40.324 26.528C41.0707 25.8667 41.444 24.96 41.444 23.808V23.616C41.444 22.528 41.0493 21.6747 40.26 21.056C39.4707 20.416 38.4467 20.096 37.188 20.096H32.932V27.52Z" fill="#EB5E28"/>
+            </svg>
+        </a>
+        <horizontal-container>
+            <a href="about-me.html">{aboutMe}</a>
+            <a href="projects-page.html">{projects}</a>
+            <a href="/public/assets/EthanGBautista-Resume.pdf" download="EthanGBautista-Resume">{resume}</a>
+            <a href="#contact">{contact}</a> 
+        </horizontal-container>
+    </nav>
+
+    <main>
+        <h1>Project Name</h1>
+        <hr>
+        <section id="section-1">
+
+            <h2>Section 1</h2>
+            <horizontal-container>
+                <div>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie magna quis leo fringilla, id eleifend massa porta. Praesent eu lacinia leo, vitae laoreet urna. Cras sit amet sodales odio, sit amet ornare nunc. Nunc eu eleifend ipsum. Maecenas at cursus enim.Praesent eu lacinia leo, vitae laoreet urna. Cras sit amet sodales odio, sit amet ornare nunc. Nunc eu eleifend ipsum. Maecenas at cursus enim.</p>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie magna quis leo fringilla, id eleifend massa porta. Praesent eu lacinia leo, vitae laoreet urna. Cras sit amet sodales odio, sit amet ornare nunc. Nunc eu eleifend ipsum. Maecenas at cursus enim.Praesent eu lacinia leo, vitae laoreet urna. Cras sit amet sodales odio, sit amet ornare nunc. Nunc eu eleifend ipsum. Maecenas at cursus enim.</p>
+                    <br>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc molestie magna quis leo fringilla, id eleifend massa porta. Praesent eu lacinia leo, vitae laoreet urna. Cras sit amet sodales odio, sit amet ornare nunc. Nunc eu eleifend ipsum. Maecenas at cursus enim.Praesent eu lacinia leo, vitae laoreet urna. Cras sit amet sodales odio, sit amet ornare nunc. Nunc eu eleifend ipsum. Maecenas at cursus enim.</p>
+                    <br>
+                    <ol>
+                        <li>example</li>
+                        <li>example</li>
+                        <li>example</li>
+                        <li>example</li>
+                    </ol>
+                    <ul>
+                        <li>example</li>
+                        <li>example</li>
+                        <li>example</li>
+                        <li>example</li>
+                    </ul>
+                </div>
+                <img src="public/assets/images/placeholder.png" alt="section 1 image"/>
+            </horizontal-container>
+        </section>
+        <iframe
+            id="iframe-example"
+            title="Inline Frame"
+            src="index.html"
+        >
+        </iframe>
+    </main>
+
+    <footer id="contact">
+        <h2>Let's Keep in Touch :)</h2>
+
+        <form action="#" method="post">
+            <horizontal-container>
+                <form-field>
+                  <label for="name">name</label>
+                  <input type="text" id="name" name="name" placeholder="your name" required>
+                </form-field>
+  
+                <form-field>
+                  <label for="email">email</label>
+                  <input type="email" id="email" name="email" placeholder="you@example.com" required>
+                </form-field>
+
+            </horizontal-container>
+            
+            <form-field>
+                <label for="subject">subject</label>
+                <input type="text" id="subject" name="subject" placeholder="your amazing project idea..." required>
+            </form-field>
+
+            <form-field>
+                <label for="message">message</label>
+                <textarea id="message" name="message" placeholder="share your thoughts..." required> </textarea>
+            </form-field>
+
+            <button type="submit">send</button>
+        </form>
+
+        <horizontal-container>
+            <a href="">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M26 6.66675H54C64.6667 6.66675 73.3333 15.3334 73.3333 26.0001V54.0001C73.3333 59.1276 71.2964 64.0451 67.6707 67.6708C64.045 71.2965 59.1275 73.3334 54 73.3334H26C15.3333 73.3334 6.66666 64.6668 6.66666 54.0001V26.0001C6.66666 20.8726 8.70356 15.9551 12.3293 12.3294C15.955 8.70365 20.8725 6.66675 26 6.66675ZM25.3333 13.3334C22.1507 13.3334 19.0985 14.5977 16.848 16.8481C14.5976 19.0986 13.3333 22.1508 13.3333 25.3334V54.6667C13.3333 61.3001 18.7 66.6668 25.3333 66.6668H54.6667C57.8493 66.6668 60.9015 65.4025 63.1519 63.152C65.4024 60.9016 66.6667 57.8493 66.6667 54.6667V25.3334C66.6667 18.7001 61.3 13.3334 54.6667 13.3334H25.3333ZM57.5 18.3334C58.6051 18.3334 59.6649 18.7724 60.4463 19.5538C61.2277 20.3352 61.6667 21.395 61.6667 22.5001C61.6667 23.6052 61.2277 24.665 60.4463 25.4464C59.6649 26.2278 58.6051 26.6667 57.5 26.6667C56.3949 26.6667 55.3351 26.2278 54.5537 25.4464C53.7723 24.665 53.3333 23.6052 53.3333 22.5001C53.3333 21.395 53.7723 20.3352 54.5537 19.5538C55.3351 18.7724 56.3949 18.3334 57.5 18.3334ZM40 23.3334C44.4203 23.3334 48.6595 25.0894 51.7851 28.215C54.9107 31.3406 56.6667 35.5798 56.6667 40.0001C56.6667 44.4204 54.9107 48.6596 51.7851 51.7852C48.6595 54.9108 44.4203 56.6668 40 56.6668C35.5797 56.6668 31.3405 54.9108 28.2149 51.7852C25.0893 48.6596 23.3333 44.4204 23.3333 40.0001C23.3333 35.5798 25.0893 31.3406 28.2149 28.215C31.3405 25.0894 35.5797 23.3334 40 23.3334ZM40 30.0001C37.3478 30.0001 34.8043 31.0536 32.9289 32.929C31.0536 34.8044 30 37.3479 30 40.0001C30 42.6522 31.0536 45.1958 32.9289 47.0712C34.8043 48.9465 37.3478 50.0001 40 50.0001C42.6522 50.0001 45.1957 48.9465 47.0711 47.0712C48.9464 45.1958 50 42.6522 50 40.0001C50 37.3479 48.9464 34.8044 47.0711 32.929C45.1957 31.0536 42.6522 30.0001 40 30.0001Z" fill="#E5DED2"/>
+                </svg>
+
+            </a>
+
+            <a href="">
+                <svg width="80" height="80" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M63.3333 10C65.1014 10 66.7971 10.7024 68.0474 11.9526C69.2976 13.2029 70 14.8986 70 16.6667V63.3333C70 65.1014 69.2976 66.7971 68.0474 68.0474C66.7971 69.2976 65.1014 70 63.3333 70H16.6667C14.8986 70 13.2029 69.2976 11.9526 68.0474C10.7024 66.7971 10 65.1014 10 63.3333V16.6667C10 14.8986 10.7024 13.2029 11.9526 11.9526C13.2029 10.7024 14.8986 10 16.6667 10H63.3333ZM61.6667 61.6667V44C61.6667 41.118 60.5218 38.354 58.4839 36.3161C56.446 34.2782 53.682 33.1333 50.8 33.1333C47.9667 33.1333 44.6667 34.8667 43.0667 37.4667V33.7667H33.7667V61.6667H43.0667V45.2333C43.0667 42.6667 45.1333 40.5667 47.7 40.5667C48.9377 40.5667 50.1247 41.0583 50.9998 41.9335C51.875 42.8087 52.3667 43.9957 52.3667 45.2333V61.6667H61.6667ZM22.9333 28.5333C24.4185 28.5333 25.8429 27.9433 26.8931 26.8931C27.9433 25.8429 28.5333 24.4185 28.5333 22.9333C28.5333 19.8333 26.0333 17.3 22.9333 17.3C21.4393 17.3 20.0064 17.8935 18.95 18.95C17.8935 20.0064 17.3 21.4393 17.3 22.9333C17.3 26.0333 19.8333 28.5333 22.9333 28.5333ZM27.5667 61.6667V33.7667H18.3333V61.6667H27.5667Z" fill="#E5DED2"/>
+                </svg>
+
+            </a>
+            <a href="mailto:etbautista@ucsd.edu">etbautista@ucsd.edu</a>
+        </horizontal-container>
+
+        <hr>
+        <small>//built with you in mind &lt;3 </small>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,52 @@
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: #2E231B;
+    line-height: 1.5rem;
+    max-width: 50%;
+    margin: auto;
+    padding: 0.5rem;
+    background-color: #F9FFB8;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #2e231b;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+.latin {
+    font-style: italic;
+}
+
+blockquote {
+    border: 2px solid #FFBC42;
+    padding: 5px;
+    margin: 10px;
+}
+
+a:hover,
+a:focus {
+    text-shadow: 0.5px 0.5px 5px rgba(44, 0, 232, 0.5);
+}
+
+input:focus {
+    box-shadow: 0.5px 0.5px 5px rgba(44, 0, 232, 0.5);
+}
+
+button:focus {
+    box-shadow: 0.5px 0.5px 5px rgba(44, 0, 232, 0.5)
+}
+
+/*
+This second h1 selector takes priority over the first one
+due to the fact that the browser reads CSS sequentially
+from top to bottom. In this way, the h1 color is first 
+parsed to be dark brown but here is then set to be yellow
+as it appears last.
+*/
+h1 {
+    color: #ffbc42;
+}

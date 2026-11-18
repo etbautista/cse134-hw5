@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ethanbautista.dev</title>
+    <link rel="icon" href="public/assets/icons/signature.svg"/>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+        horizontal-container {
+            display: flex;
+            flex-direction: row;
+        }
+    </style> 
+</head>
+<body>
+    <footer>
+        <h2>Let's Keep in Touch :)</h2>
+        <p>Fill out the contact form below with your name, email, and message. Please keep names from 1 to 100 characters and messages from 10 to 1000 characters. </p>
+        <form action="https://httpbin.org/post" method="post">
+                <form-field>
+                    <horizontal-container>
+                        <label for="name">name</label>
+                        <small class="err-star">*</small>
+                    </horizontal-container>
+                    <input type="text" id="name" name="name" placeholder="your name" autocomplete="name" minlength="1" maxlength="100" required>
+                </form-field>
+    
+                <form-field>
+                    <horizontal-container>
+                        <label for="email">email</label>
+                        <small class="err-star">*</small>
+                    </horizontal-container>
+                    <input type="email" id="email" name="email" placeholder="you@example.com" autocomplete="email" required>
+                </form-field>
+    
+                <form-field>
+                    <horizontal-container>
+                        <label for="message">message</label>
+                        <small class="err-star">*</small>
+                    </horizontal-container>
+                    <textarea id="message" name="message" placeholder="share your thoughts..." minlength="10" maxlength="1000" required></textarea>
+                </form-field>
+    
+                <input type="hidden" name="possible_bot" value="true"> 
+    
+                <button type="submit">send</button>
+            </form>
+    </footer>
+</body>
+</html>

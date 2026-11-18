@@ -1,0 +1,438 @@
+@import url("variables.css");
+
+body {
+    background-color: var(--light-500);
+    margin:  0;
+    padding: 0;
+}
+
+h1 {
+    font-family: var(--font-primary);
+    font-size: var(--step-5);
+    text-shadow: 4px 4px 7px var(--shadow);
+    color: var(--secondary-500);
+    font-weight: 300;
+    margin: 0;
+} 
+
+h2 {
+    font-family: var(--font-primary);
+    font-size: var(--step-3);
+    font-weight: 300;
+    color: var(--secondary-500);
+    margin: 0;
+}
+
+h3 {
+    font-family: var(--font-primary);
+    color: var(--primary-700);
+    font-size: var(--step-2);
+    font-weight: 300;
+    margin: 0;
+}
+
+p {
+    font-family: var(--font-secondary);
+    font-size: var(--step-0);
+    color: var(--dark-700);
+    margin: 0;
+}
+
+.cosmetic-text {
+    font-size: var(--step--1);
+    color: var(--secondary-500);
+    margin: 0;
+}
+
+hr {
+    width: 90%;
+    background-color: var(--tertiary-500);
+    border: none;
+    height: 2px;
+
+}
+
+nav {
+    background-color: var(--primary-500);
+    padding: var(--space-s) var(--space-l);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 4px 0 var(--shadow);
+}
+
+/* Targets the logo in the navbar */
+nav svg {
+    width: var(--space-xl);
+}
+
+/* Targets the link container in the navbar */
+nav horizontal-container {
+    gap: var(--space-xs);
+}
+
+/* Targets the links in the navbar */
+nav a {
+    font-family: var(--font-primary);
+    font-size: var(--step-1);
+    color: var(--secondary-500);
+    text-decoration: none;
+}
+
+nav a:hover,
+a:focus{
+    color: var(--tertiary-400);
+}
+
+nav button {
+    background-color: var(--secondary-500);
+    border: none;
+    color: var(--tertiary-400);
+    font-family: var(--font-primary);
+    font-size: var(--step-0);
+    border-radius: 8px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+header, main {
+    padding: var(--space-l) var(--space-xl);
+}
+
+/* Targets the hero section's horizontal container */
+header horizontal-container {
+    align-items: center;
+    gap: var(--space-s);
+
+}
+
+.hero-text {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s);
+}
+
+.hero-text hr {
+    width: 100%;
+}
+
+/* Targets all children */
+.hero-text > * {
+    margin: 0;
+}
+
+/* Targets the last child of the header text div */
+.hero-text > :last-child {
+    color: var(--dark-300);
+    text-align: right;
+}
+
+#technologies {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#technologies > horizontal-container {
+    margin: var(--space-s) 0;
+    gap: var(--space-l);
+}
+
+#technologies button {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
+#technologies button:hover {
+    filter: drop-shadow(4px 4px 4px var(--shadow));
+}
+
+.tech-container {
+    margin: 0 var(--space-m);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs)
+}
+
+.tech-container hr {
+    width: 100%;
+    margin: 0;
+}
+
+.tech-container img {
+    height: var(--space-3xl);
+}
+
+
+#recent-projects {
+    margin: var(--space-l);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-s)
+}
+
+#recent-projects > .cosmetic-text {
+    align-self: flex-end;
+}
+
+#recent-projects a {
+    text-decoration: none;
+}
+
+#recent-projects > a {
+    text-decoration: underline;
+    font-family: var(--font-primary);
+    font-size: var(--step-1);
+    color: var(--secondary-500);
+}
+
+project-container p {
+    color: var(--dark-300);
+}
+
+project-container {
+    box-shadow: 0 4px 4px 0 var(--shadow);
+    padding: var(--space-s);
+    border-radius: var(--space-xs);
+}
+
+project-container horizontal-container {
+    gap: var(--space-xs);
+}
+
+project-container horizontal-container > div {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-s)
+}
+
+project-tag {
+    display: flex;
+    justify-content: center;
+    padding: 4px;
+    box-shadow: 0 4px 4px 0 var(--shadow);
+    border-radius: 8px;
+}
+
+project-tag[data-status="designer"] {
+    background-color: var(--design);
+}
+
+project-tag[data-status="css"] {
+    background-color: var(--css);
+}
+
+project-tag[data-status="reactjs"] {
+    background-color: var(--react);
+}
+
+project-tag[data-status="developer"] {
+    background-color: var(--developer);
+}
+
+project-tag p {
+    color: var(--light-300);
+}
+
+footer {
+    background-color: var(--dark-400);
+    color: var(--tertiary-400);
+    padding: var(--space-s) var(--space-l);
+    gap: var(--space-s);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 -4px 4px 0 var(--shadow);
+
+}
+
+/* Targets the h2 in the footer */
+footer h2 {
+    color: var(--tertiary-400);
+}
+
+/* Targets the form in the footer */
+footer form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    
+}
+
+/* Targets the label-input pairs in the form */
+form form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Targets the labels in the form*/
+form label {
+    font-family: var(--font-primary);
+    font-size: var(--step-0);
+}
+
+/* Targets the container of the name and email fields */
+form horizontal-container {
+    justify-content: space-between;
+    gap: var(--space-s);
+}
+
+/* Targets the text input */
+footer form 
+input[type="text"], 
+input[type="email"], 
+textarea {
+    font-family: var(--font-secondary);
+    font-size: var(--step-0);
+    background-color: var(--tertiary-400);
+    padding: var(--space-xs) var(--space-s);
+    border: 2px solid var(--dark-500);
+    border-radius: 8px;
+}
+
+footer form 
+input[type="text"]:focus, 
+input[type="email"]:focus, 
+textarea:focus {
+    outline: none;
+    border-color: var(--secondary-500);
+}
+
+footer form 
+input[type="text"]:user-invalid, 
+input[type="email"]:user-invalid, 
+textarea:user-invalid,
+input[type="text"].not-valid,
+input[type="email"].not-valid,
+.not-valid {
+    border-color: var(--error);
+    background-color: var(--error-white);
+}
+
+
+footer form 
+horizontal-container:has(+ :required) > .err-star {
+    display: block;
+}
+
+footer form 
+horizontal-container:has(+ :user-invalid) > .err-star {
+    color: var(--error);
+}
+
+footer form 
+horizontal-container:has(+ :user-valid) > .err-star {
+    display: none;
+}
+
+/* Targets the text submit button */
+form button {
+    background-color: var(--secondary-500);
+    border: none;
+    color: var(--tertiary-400);
+    font-family: var(--font-primary);
+    font-size: var(--step-0);
+    border-radius: 8px;
+    align-self: flex-end;
+    cursor: pointer;
+}
+
+/* Targets the links in the footer */
+footer a {
+    color: var(--tertiary-400);
+    font-family: var(--font-primary);
+    font-size: var(--step-1);
+}
+
+footer p {
+    color: var(--tertiary-400)
+}
+
+#name-char-ct,
+#email-char-ct,
+#msg-char-ct {
+    text-align: right;
+}
+
+footer error-field p{
+    color: var(--dark-700);
+}
+
+footer warning-field p{
+    color: var(--dark-700);
+}
+
+footer error-field {
+    display: none;
+    background-color: var(--error-white);
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 2px solid var(--error);
+}
+
+footer warning-field {
+    display: none;
+    background-color: var(--warning-white);
+    padding: 0.75rem;
+    border-radius: 8px;
+    border: 2px solid var(--warning);
+}
+
+/* Targets the link container in the footer */
+footer horizontal-container {
+    align-items: center;
+    gap: var(--space-s);
+}
+
+footer horizontal-container svg {
+    width: var(--space-2xl);
+}
+
+/* Targets the horizontal rule in the footer */
+footer hr {
+    height: 1px;
+    background-color: var(--smalltxt);
+}
+
+/* Targets the small text in the footer */
+footer small {
+    font-family: var(--font-secondary);
+    color: var(--smalltxt);
+}
+
+#tech-slider {
+    flex: 1;    
+}
+
+.tech-page {
+    view-transition-name: tech-page;
+}
+
+.tech-page[hidden] {
+    display: none;
+}
+
+::view-transition-group(tech-page) {
+    overflow: clip;
+}
+
+@keyframes out-to-left   { to   { transform: translateX(-100%); } }
+@keyframes out-to-right  { to   { transform: translateX(100%); } }
+@keyframes in-from-right { from { transform: translateX(100%); } }
+@keyframes in-from-left  { from { transform: translateX(-100%); } }
+
+html[data-direction="next"]::view-transition-old(tech-page) { animation: 400ms ease both out-to-left; }
+html[data-direction="next"]::view-transition-new(tech-page) { animation: 400ms ease both in-from-right; }
+html[data-direction="prev"]::view-transition-old(tech-page) { animation: 400ms ease both out-to-right; }
+html[data-direction="prev"]::view-transition-new(tech-page) { animation: 400ms ease both in-from-left; }
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) { animation: none !important; }
+}
