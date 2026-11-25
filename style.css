@@ -52,6 +52,13 @@ hr {
 
 }
 
+noscript{
+    font-family: var(--font-secondary);
+    color: var(--tertiary-300);
+}
+
+
+
 nav {
     background-color: var(--primary-500);
     padding: var(--space-s) var(--space-l);
@@ -435,4 +442,55 @@ html[data-direction="prev"]::view-transition-new(tech-page) { animation: 400ms e
   ::view-transition-group(*),
   ::view-transition-old(*),
   ::view-transition-new(*) { animation: none !important; }
+}
+
+#fact-box {
+    flex-direction: column;
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--primary-500, black);
+    box-shadow: 0 4px 4px 0 var(--shadow);
+    border-radius: 8px;
+    padding: 12px;
+    width: 30rem;
+    gap: 8px;
+}
+
+#fact-box h3 {
+    color: var(--secondary-500);
+}
+
+#fact-box p {
+    color: var(--tertiary-300);
+}
+
+#fact-box small {
+    font-family: var(--font-secondary);
+    text-align: right;
+    color: var(--tertiary-300);
+}
+
+#fact-box .error {
+    color: var(--error);
+}
+
+#fact-box button {
+    font-family: var(--font-secondary);
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    color: var(--tertiary-300);
+}
+
+#fact-box #new-facts {
+    background-color: var(--secondary-500);
+    border-radius: 8px;
+    padding: 4px;
+}
+
+#fact-box horizontal-container {
+    justify-content: space-between;
+    gap: 12px
 }
