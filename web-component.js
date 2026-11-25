@@ -9,7 +9,7 @@ const EXAMPLE_ITEMS = [
     "All the world's bacteria would stretch for 10 billion light-years!"
 ]
 
-const MAX_FACTS_FETCHED = 5;
+const MAX_FACTS_FETCHED = 1;
 
 let fetchedFacts = new Array(MAX_FACTS_FETCHED);
 
@@ -23,6 +23,11 @@ async function getFact() {
         }
 
         const res = await response.json();
+
+        if(typeof res?.text !== "string"){
+            throw new Error("Unexpected response format");
+        }
+
         return res.text;
 
     } catch (err) {
@@ -31,6 +36,7 @@ async function getFact() {
 }
 
 class FactComponent extends HTMLElement {
+    _initalized = false;
     static observedAttributes = ["vis"];
     #current = 0;
     #loaded = false;
@@ -38,16 +44,24 @@ class FactComponent extends HTMLElement {
     #count;
     #header;
     #retry;
+    #mainContainer;
+    #controlContainer;
+    #leftButton;
+    #rightButton;
 
     connectedCallback() {
+        if (this._initalized) return;
+
+        this._initalized = true;
+
         this.#fact = document.createElement("p");
         this.#count = document.createElement("small");
         this.#header = document.createElement("h3");
         this.#retry = document.createElement("button");
-        const mainContainer = document.createElement("horizontal-container");
-        const controlContainer = document.createElement("horizontal-container");
-        const leftButton = document.createElement("button");
-        const rightButton = document.createElement("button");
+        this.#mainContainer = document.createElement("horizontal-container");
+        this.#controlContainer = document.createElement("horizontal-container");
+        this.#leftButton = document.createElement("button");
+        this.#rightButton = document.createElement("button");
         const leftIcon = document.createElement("img");
         const rightIcon = document.createElement("img");
         
@@ -62,22 +76,22 @@ class FactComponent extends HTMLElement {
         this.#retry.textContent = "load new facts";
         this.#retry.id = "new-facts";
         
-        leftButton.appendChild(leftIcon);
-        rightButton.appendChild(rightIcon);
+        this.#leftButton.appendChild(leftIcon);
+        this.#rightButton.appendChild(rightIcon);
         
-        mainContainer.append(leftButton, this.#fact, rightButton,);
-        controlContainer.append(this.#count, this.#retry);
-        this.append(this.#header, mainContainer, controlContainer);
+        this.#mainContainer.append(this.#leftButton, this.#fact, this.#rightButton,);
+        this.#controlContainer.append(this.#count, this.#retry);
+        this.append(this.#header, this.#mainContainer, this.#controlContainer);
 
         this.#fact.role = "status";
         this.#fact.ariaLive = "polite";  
         
-        leftButton.addEventListener("click", () => {
+        this.#leftButton.addEventListener("click", () => {
             this.#current = this.#current <= 0 ? MAX_FACTS_FETCHED - 1 : this.#current - 1;
             this.#renderFact();
         });
         
-        rightButton.addEventListener("click", () => {
+        this.#rightButton.addEventListener("click", () => {
             this.#current = this.#current >= MAX_FACTS_FETCHED - 1 ? 0 : this.#current + 1;
             this.#renderFact();
         });
@@ -105,34 +119,50 @@ class FactComponent extends HTMLElement {
         this.#count.textContent = `${this.#current + 1} of ${MAX_FACTS_FETCHED}`;
     }
 
-    #renderError() {
+    #renderError(msg) {
         this.#header.textContent = "Error loading facts :(";
         this.#retry.textContent = "retry";
         this.#header.className = "error";
         this.#fact.className = "error";
-        this.replaceChildren();
-        this.append(this.#header, this.#fact, this.#retry);
+        this.#fact.textContent = msg;
+        this.#retry.textContent = "retry";
+        this.#leftButton.hidden = true;
+        this.#rightButton.hidden = true;
+        this.#count.hidden = true;
     }
-    
-    async #load() {
 
-        if(!this.#loaded) {
-            this.#fact.textContent = "Loading facts...";
-        }
-        
-        for(let i = 0; i < MAX_FACTS_FETCHED; i++){
-            let data = await getFact();
-            if(!(data instanceof Error)){
+    #clearError(){
+        this.#header.textContent = "Did You Know?";
+        this.#retry.textContent = "load new facts";
+        this.#header.className = "";
+        this.#fact.className = "";
+        this.#leftButton.hidden = false;
+        this.#rightButton.hidden = false;
+        this.#count.hidden = false;
+    }
+
+    async #load() {
+        this.#retry.disabled = true;
+        this.#fact.textContent = "Loading facts...";
+    
+        try {
+            for(let i = 0; i < MAX_FACTS_FETCHED; i++){
+                let data = await getFact();
+                if(data instanceof Error){
+                    this.#renderError(`Couldn't load facts: data.message.`);
+                    return;
+                } 
                 fetchedFacts[i] = data;
-            } else {
-                this.#fact.textContent = data.message;
-                this.#renderError();
-                return;
             }
+            
+            this.#clearError();
+            this.#current = 0;
+            this.#renderFact();
+            this.#loaded = true;
+            
+        } finally {
+            this.#retry.disabled = false;
         }
-        
-        this.#renderFact();
-        this.#loaded = true;
     }
 }  
 
