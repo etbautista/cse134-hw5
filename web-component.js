@@ -138,8 +138,7 @@ class FactComponent extends HTMLElement {
 
 customElements.define("fact-component", FactComponent);
 
-const component = document.createElement("fact-component");
-document.body.appendChild(component);
+const component = document.querySelector("fact-component");
 
 if(load(FACTS_VIS_PREFERENCES_KEY, FACTS_VIS_PREFERENCES, "true") === "true"){
     component.setAttribute("vis", "vis");
